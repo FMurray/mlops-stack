@@ -20,7 +20,7 @@ env:
 jobs:
   staging:
     concurrency: my_mlops_project-staging-bundle-job
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
         with:
@@ -58,7 +58,7 @@ jobs:
 
   prod:
     concurrency: my_mlops_project-prod-bundle-job
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
         with:
