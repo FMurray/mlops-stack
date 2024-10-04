@@ -27,8 +27,8 @@ jobs:
       - name: Validate Bundle For Prod
         id: validate
         run: |
-          databricks bundle validate -t forrest_murray_staging
+          databricks bundle validate -t forrest_murray_prod
       - name: Deploy Bundle to Prod
         id: deploy
         run: |
-          databricks bundle deploy -t forrest_murray_staging
+          databricks bundle deploy -t forrest_murray_prod
