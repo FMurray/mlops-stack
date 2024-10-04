@@ -9,6 +9,13 @@ variables:
   model_name:
     description: Model name for the model training.
     default: my_mlops_project-model
+  input_start_date:
+    description: The input start date to filter the dataset
+    default: ""
+  input_end_date:
+    description: The input end date to filter the dataset
+    default: ""
+
 
 include:
   # Resources folder contains ML artifact resources for the ML project that defines model and experiment
@@ -29,17 +36,27 @@ targets:
       # TODO: add dev workspace URL
       host: https://e2-demo-field-eng.cloud.databricks.com
 
-
+# max_pickup_datetime	min_pickup_datetime	max_dropoff_datetime
+# 2016-02-29T23:51:20.000	2016-01-01T00:04:30.000	2016-02-29T23:59:38.000
 
   forrest_murray_prod:
     workspace:
       host: https://e2-demo-field-eng.cloud.databricks.com
+    variables:
+      input_start_date: "2016-02-01T23:59:38.000"
+      input_end_date: ""
 
   forrest_murray_staging:
     workspace:
       host: https://e2-demo-field-eng.cloud.databricks.com
+    variables:
+      input_start_date: "2016-02-01T23:59:38.000"
+      input_end_date: ""
 
   forrest_murray:
     workspace:
       host: https://e2-demo-field-eng.cloud.databricks.com
-
+    variables:
+      input_start_date: ""
+      input_end_date: "2016-02-01T23:59:37.000"
+      
